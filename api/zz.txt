@@ -1,0 +1,9 @@
+{
+    "name": "Noman",
+    "age": 30,
+    "is_married": true,
+    "title": [
+        "Engineer",
+        "Developer"
+    ]
+}

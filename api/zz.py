@@ -740,4 +740,6 @@ elif type == 17:
         while not q.empty():
             print(q.get())
 
+        print("Good Job")
+
 

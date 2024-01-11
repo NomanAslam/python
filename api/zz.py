@@ -746,3 +746,5 @@ elif type == 17:
 
         print("Good Job 3")
 
+        print("Good Job 4")
+

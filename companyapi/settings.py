@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t163!zvq4r5%or8l^o1#_v63tpl@n+v3@4_b0^m59#pn=bwo4s'
+# SECRET_KEY = 'django-insecure-t163!zvq4r5%or8l^o1#_v63tpl@n+v3@4_b0^m59#pn=bwo4s'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -40,7 +44,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'rest_framework.authtoken',
+    'djoser',
+    'drf_yasg',
+    
+    'vege',
+    'authentication',
+    'orders.apps.OrdersConfig',
 ]
+
+AUTH_USER_MODEL = 'authentication.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,6 +141,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 
@@ -141,6 +154,16 @@ REST_FRAMEWORK = {
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100
+}
+
+REST_FRAMEWORK = {
+    'NON_FIELD_ERRORS_KEY': 'errors',
+}
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('Bearer',),
+   'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+   'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
 """ REST_FRAMEWORK = {

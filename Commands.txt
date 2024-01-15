@@ -1,0 +1,96 @@
+3 stages: modified, staged, committed
+
+git branch
+git status
+git log
+git log --patch -1
+
+#To Update Code on Git
+git add .
+git add --all
+git commit -m "CommitName"
+git push
+or
+git push origin Noman
+
+#To create new branch and switch
+git branch Arshad
+git checkout Arshad
+
+#To create new branch and switch to it immediately
+git checkout -b Arshad
+
+#To publish new branch
+git push origin Arshad
+
+#To publish new branch after some changes
+git add .
+git commit -m "New Branch Added"
+git push origin Arshad
+
+git merge Arshad (to merge Arshad into main branch)
+
+#To remove conflict, set the file by removing extra line of code
+git add .
+git commit
+:wq
+
+
+
+git restore --staged (to go from staged to modified)
+git restore (to remove modified changes)
+cat abc.txt (to print a file)
+
+rm -rf .git
+
+
+#To activate and deactivate a project
+deactivate
+
+virtualenv venv
+or
+python3 -m virtualenv venv 
+cd venv
+cd Scripts
+activate 
+. .venv/Scripts/activate
+cd ..
+cd ..
+cd learning1
+python manage.py runserver
+python manage.py runserver 0.0.0.0:5000
+
+pip freeze > requirements.txt
+
+#To create new Project
+django-admin startproject MyProject
+or
+python -m django startproject mysite
+
+#To Open Project from cmd
+cd MyProject
+code .
+
+#To create inner app
+python manage.py startapp api
+
+#To create super admin
+python manage.py createsuperuser
+
+pip install django
+pip install djangorestframework
+
+#To run migrations
+python manage.py makemigrations
+python manage.py migrate
+python manage.py sqlmigrate movies 0001
+
+#To create superuser
+python manage.py createsuperuser
+
+mkdir foldername
+pip install -r requirments.txt
+pip install awsebcli
+
+eb deploy
+

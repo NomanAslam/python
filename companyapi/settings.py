@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     
     'vege',
     'authentication',
+    'learning',
     'orders.apps.OrdersConfig',
 ]
 
@@ -169,7 +170,6 @@ SIMPLE_JWT = {
 
 SWAGGER_SETTINGS = {
    'SECURITY_DEFINITIONS': {
-      
       'Bearer': {
             'type': 'apiKey',
             'name': 'Authorization',

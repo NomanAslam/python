@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'authentication',
     'learning',
     'orders.apps.OrdersConfig',
+    'todos',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'

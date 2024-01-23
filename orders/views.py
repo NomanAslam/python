@@ -72,7 +72,7 @@ class UpdateOrderStatus(generics.GenericAPIView):
     @swagger_auto_schema(operation_summary="Update an Order Status")
     def put(self, request, order_id):
         order = get_object_or_404(Order, pk=order_id)
-        serializer = self.serializer_class(instance=order, data=request.data)
+        serializer = self.serializer_class(instance=order,data=request.data)
 
         if serializer.is_valid():
             serializer.save()

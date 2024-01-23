@@ -1,3 +1,9 @@
+https://roadmap.sh/python
+https://www.fullstack.cafe/interview-questions/python
+https://www.mlstack.cafe/interview-questions/python
+https://www.algoexpert.io/product
+
+
 3 stages: modified, staged, committed
 
 git branch
@@ -93,4 +99,53 @@ pip install -r requirments.txt
 pip install awsebcli
 
 eb deploy
+
+
+
+Shortcuts:
+ctrl+p: to search specific class or file
+ctrl+d: to select same keyword in a file
+
+
+React:
+code .
+npm install
+npm run dev
+
+
+Node:
+npm init --yes
+npm i express
+npm i -g nodemon
+npm i pg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

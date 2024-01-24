@@ -3,12 +3,18 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
+import jwt
+from django.conf import settings
+from datetime import datetime, timedelta
 
 class CustomUserManager(BaseUserManager):
 
     def create_user(self, email, password, **extra_fields):
         if not email:
             raise ValueError(_("Email should be provided"))
+        
+        if not password:
+            raise ValueError(_("Password should be provided"))
         
         email = self.normalize_email(email)
         new_user = self.model(email=email, **extra_fields)
@@ -34,7 +40,7 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class User(AbstractUser):
-    username = models.CharField(max_length=25, unique=True)
+    username = models.CharField(max_length=25, unique=True, blank=True)
     email = models.EmailField(max_length=80, unique=True)
     phone_number = PhoneNumberField(null=False, unique=True)
 
@@ -45,4 +51,9 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"<User {self.email} >"
+    
+    @property
+    def token(self):
+        token = jwt.encode({'username': self.username, 'email': self.email, 'exp': datetime.utcnow() + timedelta(hours=24)}, settings.SECRET_KEY, algorithm='HS256')
+        return token
     

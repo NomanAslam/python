@@ -39,3 +39,14 @@ class UserCreationSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+    
+class LoginSerializer(serializers.ModelSerializer):
+   
+    email = serializers.EmailField(max_length=80)
+    password = serializers.CharField(min_length=8, write_only=True)
+
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'username', 'password', 'token']
+
+        read_only_fields = ['token']

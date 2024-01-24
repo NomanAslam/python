@@ -102,6 +102,14 @@ eb deploy
 
 
 
+TestCases:
+python manage.py test
+pip install coverage
+coverage run manage.py test && coverage report && coverage html
+
+
+
+
 Shortcuts:
 ctrl+p: to search specific class or file
 ctrl+d: to select same keyword in a file
